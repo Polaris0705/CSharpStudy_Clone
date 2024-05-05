@@ -80,19 +80,19 @@ public class Collection_re : MonoBehaviour
 
     private void Addnames()
     {
-        output.text = "등록하실 성명을 입력 후 [Space]+[A]키를 눌러주세요.";
+        output.text = "등록하실 성명을 입력 후 [Space]+[A]키를 눌러주세요.\n";
         string value = input.text;
         names.Add(value);
         if (value != ""&& Input.GetKeyDown(KeyCode.A))
         {
-            output.text = $"{value}님을 추가했습니다.\n\n[Space]+[X]키를 누르면 메인 화면으로 돌아갑니다.";
+            output.text = $"{value}님을 추가했습니다.\n\n[Space]+[X]키를 누르면 메인 화면으로 돌아갑니다.\n";
             value = null;
         }
     }
 
     private void Deletenames()
     {
-        output.text = "삭제하실 성명을 입력해주세요.\n";
+        output.text = "삭제하실 성명을 입력 후 [Space]+[D]키를 눌러주세요.\n";
         string value = input.text;
         if(value!=""&& Input.GetKeyDown(KeyCode.D))
         {
@@ -128,11 +128,11 @@ public class Collection_re : MonoBehaviour
         {
             if (names.Contains(value))
             {
-                output.text = $"{value}님은 {names.IndexOf(value)}번째에 있습니다.";
+                output.text = $"{value}님은 {names.IndexOf(value)}번째에 있습니다.\n";
             }
             else
             {    //2-1. 없으면 정보없음 출력
-                output.text = "해당 학생은 명단에 없습니다.";
+                output.text = "해당 학생은 명단에 없습니다.\n";
             }
 
         }

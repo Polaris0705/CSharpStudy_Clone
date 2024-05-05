@@ -98,12 +98,12 @@ public class Collection_re : MonoBehaviour
         {
             if (names.Contains(value))
             {
-                output.text = $"{value} 님을 명단에서 삭제하였습니다.\n\n[X]키를 누르면 메인 화면으로 돌아갑니다.\n";
+                output.text = $"{value} 님을 명단에서 삭제하였습니다.\n\n[Space]+[X]키를 누르면 메인 화면으로 돌아갑니다.\n";
                 names.Remove(value);
             }
             else
             {    //2-1. 없으면 정보없음 출력
-                output.text = "해당 학생은 명단에 없습니다.\n\n[X]키를 누르면 메인 화면으로 돌아갑니다.\n";
+                output.text = "해당 학생은 명단에 없습니다.\n\n[Space]+[X]키를 누르면 메인 화면으로 돌아갑니다.\n";
             }
         }
 
@@ -114,26 +114,29 @@ public class Collection_re : MonoBehaviour
         names.Sort();
         for (int i = 1; i < names.Count; i++)
         {
-            valList += $"{i+1}번 | {names[i+1]} 님\n";
+            valList += $"{i}번 | {names[i]} 님\n";
         }
         output1.text = $"---\n{valList}---\n";
     }
+
 
     private void Checknames()
     {
         output.text = "검색하실 성명을 입력해주세요.\n";
         string value = input.text;
-        output.text = "\n";
-        output.text = "검색중입니다...\n";
-        if (names.Contains(value))
+        if(value != null && Input.GetKeyDown(KeyCode.C))
         {
-            output.text = $"{value}님은 {names.IndexOf(value)}번째에 있습니다.";
-        }
-        else
-        {    //2-1. 없으면 정보없음 출력
-            output.text = "해당 학생은 명단에 없습니다.";
-        }
-    }
+            if (names.Contains(value))
+            {
+                output.text = $"{value}님은 {names.IndexOf(value)}번째에 있습니다.";
+            }
+            else
+            {    //2-1. 없으면 정보없음 출력
+                output.text = "해당 학생은 명단에 없습니다.";
+            }
 
+        }
+
+    }
 
 }
